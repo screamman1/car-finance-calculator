@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>حاسبة تمويل السيارات - معرض السيارات</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>حاسبة تمويل السيارات</h1>
+    <p>احسب القسط الشهري للعميل بدقة حسب البنك أو شركة التمويل</p>
+
+    <form id="calculatorForm">
+      <div class="input-group">
+        <label>سعر السيارة (ريال)</label>
+        <input type="number" id="carPrice" placeholder="مثلاً: 100000" required />
+      </div>
+
+      <div class="input-group">
+        <label>الدفعة الأولى (ريال)</label>
+        <input type="number" id="downPayment" placeholder="مثلاً: 10000" value="0" />
+      </div>
+
+      <div class="input-group">
+        <label>الراتب الشهري (ريال)</label>
+        <input type="number" id="salary" placeholder="مثلاً: 12000" required />
+      </div>
+
+      <div class="input-group">
+        <label>هل الراتب محول؟</label>
+        <div class="radio-group">
+          <label><input type="radio" name="salaryTransferred" value="yes" checked /> نعم</label>
+          <label><input type="radio" name="salaryTransferred" value="no" /> لا</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>اختر الجهة التمويلية</label>
+        <select id="financeCompany" required>
+          <option value="">اختر جهة التمويل</option>
+          <!-- سيتم ملؤها من خلال JavaScript -->
+        </select>
+      </div>
+
+      <div class="input-group">
+        <label>مدة التمويل</label>
+        <select id="loanTerm">
+          <option value="36">36 شهر</option>
+          <option value="48">48 شهر</option>
+          <option value="60" selected>60 شهر</option>
+        </select>
+      </div>
+
+      <button type="submit">احسب القسط</button>
+    </form>
+
+    <div id="result" class="result hidden">
+      <h2>نتيجة الحساب</h2>
+      <ul>
+        <li><strong>المبلغ الممول:</strong> <span id="financedAmount"></span> ريال</li>
+        <li><strong>القسط الشهري:</strong> <span id="monthlyPayment"></span> ريال</li>
+        <li><strong>إجمالي المدفوعات:</strong> <span id="totalPayment"></span> ريال</li>
+        <li><strong>نسبة الاستقطاع من الراتب:</strong> <span id="salaryPercentage"></span>%</li>
+        <li><strong>الحالة:</strong> <span id="approvalStatus"></span></li>
+      </ul>
+      <button id="printBtn">طباعة العرض</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
